@@ -9,10 +9,11 @@ const auth =
   (...requiredRoles: string[]) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
+      console.log("hittinng auth of core service")
       //get authorization token
       const token = req.headers.authorization;
       if (!token) {
-        throw new ApiError(httpStatus.UNAUTHORIZED, 'You are not authorized');
+        throw new ApiError(httpStatus.UNAUTHORIZED, 'You are not authorized!!');
       }
       // verify token
       let verifiedUser = null;
